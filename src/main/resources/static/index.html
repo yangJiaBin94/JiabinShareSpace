@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Normal Distribution</title>
+    <!-- Bootstrap CSS-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css">
+</head>
+<body>
+<div style="margin-left: 100px">
+    <form id="form" action="http://localhost:8099/getResult/v1" method="post">
+        <!--    <form id="form" action="http://112.124.3.199:8099/getResult/v1" method="post">-->
+        <textarea name="data" class="form-control" id="deblock_udid" name="deblock_udid" rows="16"
+                  style="min-width: 90%"></textarea>
+        <br>
+        <span>区间数量</span>：<input name="num" id="qujian" type="text" placeholder="区间数" value="5">
+        <button id="btn" type="button" class="btn btn-lg btn-success" onclick="getResult()">生成Excel</button>
+    </form>
+
+</div>
+
+</body>
+<script>
+    function getResult() {
+        const tempForm = $("#form");
+        var data = $("#deblock_udid").val().replace(/\D/g, ' ').replace(/\s+/ig, " ");
+        $("#deblock_udid").val(data)
+        tempForm.submit();
+
+    }
+</script>
+</html>
